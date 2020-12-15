@@ -9,11 +9,7 @@ class CategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     //we can able to use .builder with the list with dynamic amount => but no
     // need
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("DeliMeal"),
-      ),
-      body: GridView(
+    return GridView(
         padding: const EdgeInsets.all(25),
         children: (DUMMY_CATEGORIES.map(
           (cate) => (CategoryItem(
@@ -30,7 +26,6 @@ class CategoriesScreen extends StatelessWidget {
         //SliverGridDelegateWithMaxCrossAxisExtent() delegate size for EACH
         // item in GridView and the GridView try to add as many columns as
         // possible
-      ),
     );
   }
 }
