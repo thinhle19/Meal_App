@@ -12,7 +12,7 @@ class CategoryItem extends StatelessWidget {
   void selectCategory(BuildContext ctx) {
     //namedRoute we created at main.dart
     Navigator.of(ctx).pushNamed(
-      "/category-meals",
+      CategoryMealsScreen.routeName,
       arguments: {
         "id": id,
         "title": title,

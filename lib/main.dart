@@ -30,9 +30,12 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.bold,
             )),
       ),
-      home: CategoriesScreen(),
+      // home: CategoriesScreen(),
+      initialRoute: "/", //default of Flutter (means your root screen) => no
+      // need to specify
       routes: {
-        "/category-meals": (ctx) => CategoryMealsScreen(),
+        "/": (ctx) => CategoriesScreen(),
+        CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
         // slash here is the style copy from web development
       },
       //first screen in your application (entry point)

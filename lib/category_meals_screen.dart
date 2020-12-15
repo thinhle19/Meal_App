@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 //show all meals of the cate we chose ???????
 class CategoryMealsScreen extends StatelessWidget {
+  static const routeName = "/category-meals";
   /*final String cateId;
   final String cateTitle;
 
