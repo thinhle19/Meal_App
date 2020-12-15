@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       ),
       home: CategoriesScreen(),
       routes: {
-        "/categories-meals": (ctx) => CategoryMealsScreen(),
+        "/category-meals": (ctx) => CategoryMealsScreen(),
         // slash here is the style copy from web development
       },
       //first screen in your application (entry point)
