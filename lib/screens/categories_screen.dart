@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'file:///D:/Programming/%23Flutter/meals_app/lib/widgets/category_item.dart';
+import '../widgets/category_item.dart';
 import '../dummy_data.dart';
 
 //display list of category
