@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/category_item.dart';
 import 'dummy_data.dart';
 
+//display list of category
 class CategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -14,8 +15,13 @@ class CategoriesScreen extends StatelessWidget {
       ),
       body: GridView(
         padding: const EdgeInsets.all(25),
-        children: (DUMMY_CATEGORIES
-            .map((cate) => (CategoryItem(cate.title, cate.color)))).toList(),
+        children: (DUMMY_CATEGORIES.map(
+          (cate) => (CategoryItem(
+            cate.id,
+            cate.title,
+            cate.color,
+          )),
+        )).toList(),
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 200,
             childAspectRatio: 3 / 2, //200 width => 300 height
