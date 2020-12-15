@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
       // home: CategoriesScreen(),
       initialRoute: "/", //default of Flutter (means your root screen) => no
       // need to specify
+      //named route like this help very much in bigger app
       routes: {
         "/": (ctx) => CategoriesScreen(),
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
