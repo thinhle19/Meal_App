@@ -10,13 +10,13 @@ class CategoryItem extends StatelessWidget {
   CategoryItem(this.id, this.title, this.color);
 
   void selectCategory(BuildContext ctx) {
-    Navigator.of(ctx).push(
-      //could use CupertinoPageRoute also
-      MaterialPageRoute(
-        builder: (_) {
-          return CategoryMealsScreen(id, title);
-        },
-      ),
+    //namedRoute we created at main.dart
+    Navigator.of(ctx).pushNamed(
+      "/category-meals",
+      arguments: {
+        "id": id,
+        "title": title,
+      },
     );
     //flutter auto give u a back button
     //context hold info about position, attributes, blabla of this widget so
