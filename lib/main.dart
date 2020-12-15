@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import 'package:meals_app/categories_screen.dart';
-import 'package:meals_app/category_meals_screen.dart';
+import 'file:///D:/Programming/%23Flutter/meals_app/lib/screens/categories_screen.dart';
+import 'file:///D:/Programming/%23Flutter/meals_app/lib/screens/category_meals_screen.dart';
 
 void main() => runApp(MyApp());
 

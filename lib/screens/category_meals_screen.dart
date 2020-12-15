@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'dummy_data.dart';
+import '../dummy_data.dart';
 
 //show all meals of the cate we chose ???????
 class CategoryMealsScreen extends StatelessWidget {
