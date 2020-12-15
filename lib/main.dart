@@ -18,7 +18,10 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.amber,
         canvasColor: Color.fromRGBO(255, 254, 229, 1),
         fontFamily: "Raleway",
-        textTheme: ThemeData.light().textTheme.copyWith(
+        textTheme: ThemeData
+            .light()
+            .textTheme
+            .copyWith(
             body1: TextStyle(
               color: Color.fromRGBO(20, 51, 51, 1),
             ),
@@ -32,7 +35,8 @@ class MyApp extends StatelessWidget {
             )),
       ),
       // home: CategoriesScreen(),
-      initialRoute: "/", //default of Flutter (means your root screen) => no
+      initialRoute: "/",
+      //default of Flutter (means your root screen) => no
       // need to specify
       //named route like this help very much in bigger app
       routes: {
@@ -40,6 +44,15 @@ class MyApp extends StatelessWidget {
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
         // slash here is the style copy from web development
+      },
+      //helpful when there's a strange route
+      onGenerateRoute: (settings) {
+        print(settings.arguments);
+        //checking if here to navigate to your wanting widget
+        return MaterialPageRoute(builder: (ctx) => CategoriesScreen());
+      },
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(builder: (ctx) => CategoriesScreen());
       },
       //first screen in your application (entry point)
     );
