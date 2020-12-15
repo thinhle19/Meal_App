@@ -11,7 +11,10 @@ class CategoryItem extends StatelessWidget {
     //you can add default Card here, but lecturer use Container to modify
     return Container(
       padding: const EdgeInsets.all(15),
-      child: Text(title),
+      child: Text(
+        title,
+        style: Theme.of(context).textTheme.title,
+      ),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [

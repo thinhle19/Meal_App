@@ -13,14 +13,14 @@ class CategoriesScreen extends StatelessWidget {
         title: const Text("DeliMeal"),
       ),
       body: GridView(
+        padding: const EdgeInsets.all(25),
         children: (DUMMY_CATEGORIES
             .map((cate) => (CategoryItem(cate.title, cate.color)))).toList(),
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 200,
-          childAspectRatio: 3 / 2, //200 width => 300 height
-          crossAxisSpacing: 20,
-          mainAxisSpacing: 20
-        ),
+            maxCrossAxisExtent: 200,
+            childAspectRatio: 3 / 2, //200 width => 300 height
+            crossAxisSpacing: 20,
+            mainAxisSpacing: 20),
         //SliverGridDelegateWithMaxCrossAxisExtent() delegate size for EACH
         // item in GridView and the GridView try to add as many columns as
         // possible
