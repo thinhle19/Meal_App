@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'package:meals_app/widgets/meal_item.dart';
 import '../dummy_data.dart';
 
 //show all meals of the cate we chose ???????
 class CategoryMealsScreen extends StatelessWidget {
   static const routeName = "/category-meals";
+
   /*final String cateId;
   final String cateTitle;
 
@@ -26,9 +28,18 @@ class CategoryMealsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(cateTitle),
       ),
-      body: ListView.builder(itemBuilder: (ctx, index) {
-        return Text("${cateMeals[index].title}");
-      }, itemCount: cateMeals.length,),
+      body: ListView.builder(
+        itemBuilder: (ctx, index) {
+          return MealItem(
+            title: cateMeals[index].title,
+            imageUrl: cateMeals[index].imageUrl,
+            duration: cateMeals[index].duration.toString(),
+            complexity: cateMeals[index].complexity,
+            affordability: cateMeals[index].affordability,
+          );
+        },
+        itemCount: cateMeals.length,
+      ),
     );
   }
 }
