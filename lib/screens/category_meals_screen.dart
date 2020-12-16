@@ -1,29 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/models/meal.dart';
 
 import 'package:meals_app/widgets/meal_item.dart';
 import '../dummy_data.dart';
 
 //show all meals of the cate we chose ???????
-class CategoryMealsScreen extends StatelessWidget {
+class CategoryMealsScreen extends StatefulWidget {
   static const routeName = "/category-meals";
 
-  /*final String cateId;
-  final String cateTitle;
+  @override
+  _CategoryMealsScreenState createState() => _CategoryMealsScreenState();
+}
 
-  CategoryMealsScreen(this.cateId, this.cateTitle);*/
-//don't need this anymore because now we use namedRouted and Passing Data
-// with Named Routes
+class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
+  String cateTitle;
+  List<Meal> displayedMeals;
+  var _loadedInitData = false;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    if (!_loadedInitData) {
+      //cause we use modal of context =. initState is too soon to get the
+      // correct context => error
+      final routeArgs =
+          ModalRoute.of(context).settings.arguments as Map<String, String>;
+      cateTitle = routeArgs["title"];
+      final cateId = routeArgs["id"];
+      displayedMeals = DUMMY_MEALS.where((meal) {
+        return meal.categories.contains(cateId);
+      }).toList();
+      _loadedInitData = true;
+    }
+    super.didChangeDependencies();
+  }
+
+  void _removeMeal(String mealId) {
+    setState(() {
+      displayedMeals.removeWhere((meal) => meal.id == mealId);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    final routeArgs =
-        ModalRoute.of(context).settings.arguments as Map<String, String>;
-    final cateTitle = routeArgs["title"];
-    final cateId = routeArgs["id"];
-    final cateMeals = DUMMY_MEALS.where((meal) {
-      return meal.categories.contains(cateId);
-    }).toList();
-
     return Scaffold(
       appBar: AppBar(
         title: Text(cateTitle),
@@ -31,15 +54,16 @@ class CategoryMealsScreen extends StatelessWidget {
       body: ListView.builder(
         itemBuilder: (ctx, index) {
           return MealItem(
-            id: cateMeals[index].id,
-            title: cateMeals[index].title,
-            imageUrl: cateMeals[index].imageUrl,
-            duration: cateMeals[index].duration.toString(),
-            complexity: cateMeals[index].complexity,
-            affordability: cateMeals[index].affordability,
+            id: displayedMeals[index].id,
+            title: displayedMeals[index].title,
+            imageUrl: displayedMeals[index].imageUrl,
+            duration: displayedMeals[index].duration.toString(),
+            complexity: displayedMeals[index].complexity,
+            affordability: displayedMeals[index].affordability,
+            removeItem: _removeMeal,
           );
         },
-        itemCount: cateMeals.length,
+        itemCount: displayedMeals.length,
       ),
     );
   }
