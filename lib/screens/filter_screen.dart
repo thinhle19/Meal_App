@@ -5,6 +5,10 @@ import 'package:meals_app/widgets/main_drawer.dart';
 class FilterScreen extends StatefulWidget {
   static const routeName = "/filters";
 
+  final Function saveFilters;
+
+  FilterScreen(this.saveFilters);
+
   @override
   _FilterScreenState createState() => _FilterScreenState();
 }
@@ -34,6 +38,22 @@ class _FilterScreenState extends State<FilterScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Your filters"),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.save,
+            ),
+            onPressed: () {
+              final selectedFilters = {
+                "gluten": _glutenFree,
+                "lactose": _lactoseFree,
+                "vegan": _vegan,
+                "vegetarian": _vegetarian,
+              };
+              widget.saveFilters(selectedFilters);
+            },
+          ),
+        ],
       ),
       drawer: MainDrawer(),
       body: Column(
