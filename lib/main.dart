@@ -81,7 +81,7 @@ class _MyAppState extends State<MyApp> {
         CategoryMealsScreen.routeName: (ctx) =>
             CategoryMealsScreen(_availableMeals),
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
-        FilterScreen.routeName: (ctx) => FilterScreen(_setFilters),
+        FilterScreen.routeName: (ctx) => FilterScreen(_filters, _setFilters),
         // slash here is the style copy from web development
       },
       //helpful when there's a strange route
