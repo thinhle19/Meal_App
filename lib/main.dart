@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:meals_app/screens/filter_screen.dart';
 import 'package:meals_app/screens/tabs_screen.dart';
 
 import './screens/meal_detail_screen.dart';
@@ -19,10 +20,7 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.amber,
         canvasColor: Color.fromRGBO(255, 254, 229, 1),
         fontFamily: "Raleway",
-        textTheme: ThemeData
-            .light()
-            .textTheme
-            .copyWith(
+        textTheme: ThemeData.light().textTheme.copyWith(
             body1: TextStyle(
               color: Color.fromRGBO(20, 51, 51, 1),
             ),
@@ -44,6 +42,7 @@ class MyApp extends StatelessWidget {
         "/": (ctx) => TabsScreen(),
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
+        FilterScreen.routeName: (ctx) => FilterScreen(),
         // slash here is the style copy from web development
       },
       //helpful when there's a strange route
